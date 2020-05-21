@@ -1,18 +1,13 @@
-const express = require("express")
+const express = require("express");
 
 const app = express();
 
-app.use((req, res, next) => {
-	console.log('This is middleware for my assignment');
-	next();
+app.use("/users", (req, res, next) => {
+  res.send("<h1>this is /users</h1>");
 });
 
-app.use((req, res, next) => {
-	console.log('This is middleware for my assignment');
+app.use("/", (req, res, next) => {
+  res.send("<h1>this is the root</h1>");
 });
-
-
-
 
 app.listen(3000);
-
